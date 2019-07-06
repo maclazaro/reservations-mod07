@@ -8,7 +8,9 @@
         xmlns:http="http://www.mulesoft.org/schema/mule/http"
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:db="http://www.mulesoft.org/schema/mule/db"
-        xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+        xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+        xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
@@ -20,5 +22,6 @@ http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mul
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="${http.port}" doc:name="HTTP Listener Configuration"/>
 	<http:request-config name="HTTP_Request_Configuration" host="0.0.0.0" port="${http.port}" basePath="/api" doc:name="HTTP Request Configuration"/>
     <db:mysql-config name="MySQL_Configuration" host="${db.host}" port="${db.port}" user="${db.user}" password="${db.password}" database="${db.database}" doc:name="MySQL Configuration"/>
+    <vm:connector name="varsVmConfiguration" validateConnections="true" doc:name="VM"/>
 
 </domain:mule-domain>
